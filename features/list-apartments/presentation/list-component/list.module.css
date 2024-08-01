@@ -1,0 +1,68 @@
+.cardList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.cardWrapper {
+    width: 80%;
+    opacity: 0;
+    animation: enter 1s forwards;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.fromLeft {
+    animation-name: enterFromLeft;
+}
+
+.fromRight {
+    animation-name: enterFromRight;
+    justify-content: flex-end;
+}
+
+@keyframes enterFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes enterFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.paginationControls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.paginationControls button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    cursor: pointer;
+}
+
+.paginationControls button:disabled {
+    background-color: #e0e0e0;
+    color: black;
+    cursor: not-allowed;
+}

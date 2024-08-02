@@ -4,6 +4,12 @@ import { ApartmentRepository } from '@/src/infrastructure/repositories/apartment
 import multer from 'multer';
 import path from 'path';
 import { ApartmentUseCases } from '@/src/application/use-cses/apartment.usecase';
+import { APIResponse } from '@/src/domain/dtos/APIResponse.dto';
+import { EmitResponse } from '@/src/application/services/Response.service';
+import { ApartmentAddRequest } from '@/src/domain/dtos/apartment/apartment-add-request.dto';
+import { ApartmentListingResponse } from '@/src/domain/dtos/apartment/apartment-listing-response.dto';
+import { AprtmentToApartmentListRes } from '@/src/application/mappers/apartment.mapper';
+import { addApartment, getPaged } from '@/src/presentation/controllers/apartment.controller';
 
 // Configure multer for file uploads
 const upload = multer({
@@ -28,28 +34,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const apartmentUseCases = new ApartmentUseCases(apartmentRepo);
 
   if (req.method === 'POST') {
-    upload.single('imgUrl')(req as any, res as any, async (err: any) => {
-      if (err) return res.status(500).json({ error: err.message });
-      try {
-        const apartment = await apartmentUseCases.add(req.body, (req as any).file.path.replace('public', ''));
-        res.status(201).json(apartment);
-      } catch (e) {
+    await addApartment(req, res);
+  } 
 
-        res.status(500).json({ error: e });
-      }
-    });
-  } else if (req.method === 'GET') {
-    const pageSize = req.query.pageSize ? Number(req.query.pageSize) : 1000;
-    const pageNumber = req.query.pageNumber ? Number(req.query.pageNumber) : 1;
+  else if (req.method === 'GET') {
+    await getPaged(req, res);
+  }
 
-    const { page = pageNumber, limit = pageSize } = req.query;
-    try {
-      const apartments = await apartmentUseCases.getPaged(Number(page), Number(limit));
-      res.status(200).json(apartments);
-    } catch (e) {
-      res.status(500).json({ error: e });
-    }
-  } else {
-    res.status(405).json({ error: 'Method not allowed' });
+  else {
+    EmitResponse(res, new APIResponse<null>(null, 'Method not allowed', true, 405 ));
   }
 };

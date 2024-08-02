@@ -32,9 +32,6 @@ export class Apartment {
   @Column()
   floor: number;
 
-  @Column("simple-array")
-  amenities: string[];
-
   @Column()
   availability: boolean;
 
@@ -58,7 +55,6 @@ export class Apartment {
     price: number,
     address: string,
     floor: number,
-    amenities: string[],
     availability: boolean,
     description: string,
     createdAt: Date,
@@ -74,7 +70,6 @@ export class Apartment {
     this.price= price;
     this.address= address;
     this.floor= floor;
-    this.amenities= amenities;
     this.availability= availability;
     this.description= description;
     this.createdAt= createdAt;

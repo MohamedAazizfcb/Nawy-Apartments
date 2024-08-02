@@ -16,7 +16,6 @@ export class ApartmentUseCases {
       apartmentData.price,
       apartmentData.address,
       apartmentData.floor,
-      apartmentData.amenities,
       apartmentData.availability,
       apartmentData.description,
       new Date(),
@@ -31,5 +30,9 @@ export class ApartmentUseCases {
 
   async getOne(id: number): Promise<Apartment | null> {
     return this.apartmentRepo.findOne(id);
+  }
+
+  async getTotalCount(): Promise<number> {
+    return this.apartmentRepo.getTotalCount();
   }
 }

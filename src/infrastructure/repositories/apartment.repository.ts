@@ -18,4 +18,8 @@ export class ApartmentRepository {
   async findOne(id: number): Promise<Apartment | null> {
     return this.repo.findOne({ where: { id } });
   }
+
+  async getTotalCount(): Promise<number> {
+    return this.repo.count();
+  }
 }

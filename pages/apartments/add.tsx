@@ -1,6 +1,10 @@
+import AddApartmentComponent from "@/features/add-appartment/presentation/add.component/add.component";
+
 const AddPage = ()=>{
     return(
-        <main></main>
+        <main>
+            <AddApartmentComponent></AddApartmentComponent>
+        </main>
     )
 };
 

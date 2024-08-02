@@ -1,0 +1,64 @@
+/* components/ApartmentForm.module.css */
+.formContainer {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ebebeb;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .formContainer.show {
+    opacity: 1;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formLabel {
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .formInput, .formTextarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .formInput:focus, .formTextarea:focus {
+    border-color: #0070f3;
+  }
+  
+  .formTextarea {
+    height: 100px;
+  }
+  
+  .submitButton {
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submitButton:hover {
+    background-color: #005bb5;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  

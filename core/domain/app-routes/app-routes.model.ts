@@ -31,10 +31,12 @@ export class RoutesModel // Singleton
         label_ar: 'الكل'
     };
 
-    ViewApartment: IRouteModel = {
-      route: this.apartments.route + '/:id',
-      label_en: 'apartment details', 
-      label_ar: 'بيانات شقة'
+    ViewApartment = (id?: number): IRouteModel => {
+      return {
+        route: id? this.apartments.route + '/' + id : this.apartments.route + '/:id',
+        label_en: 'apartment details', 
+        label_ar: 'بيانات شقة'
+      }
   };
 }
 

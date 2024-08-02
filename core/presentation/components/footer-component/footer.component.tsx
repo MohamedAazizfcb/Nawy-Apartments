@@ -1,0 +1,13 @@
+// components/Footer.js
+import React from 'react';
+import styles from './footer.module.css';
+
+const Footer = () => {
+  return (
+    <footer className={styles.footer}>
+      <p>&copy; {new Date().getFullYear()} Nawy Test App</p>
+    </footer>
+  );
+};
+
+export default Footer;

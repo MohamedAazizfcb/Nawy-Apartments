@@ -1,0 +1,41 @@
+/* components/Header.module.css */
+.header {
+    padding: 1rem;
+    position: relative;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+    background-color: rgb(92, 92, 92);
+  }
+  
+  .nav {
+    display: flex;
+  }
+  
+  .link {
+    margin-right: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .link:hover {
+    color: #ff4081;
+  }
+  
+  .log {
+    color: white;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

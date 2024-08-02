@@ -1,12 +1,21 @@
+import { baseUrl } from '@/core/domain/constants/constants';
 import { AppartmentsListElement } from '../../domain/dtos/appartments-list-element.dto';
 import styles from './list-card.module.css'
+import { useRouter } from 'next/router';
+import { appRoutes } from '@/core/domain/domain.module';
 
 const ListCardComponent = (element: AppartmentsListElement) => {
+    const router = useRouter();
+
+    const handleOpenInfo = () => {
+        router.push('/' + appRoutes.ViewApartment(element.id).route)
+    };
+
     return(
         <main>
-              <div className={styles.card}>
+              <div className={styles.card} onClick={handleOpenInfo}>
                 <div className={styles.imageContainer}>
-                    <img src={element.imgUrl} alt="Apartment Image" className={styles.cardImg} />
+                    <img src={baseUrl + element.imgUrl} alt="Apartment Image" className={styles.cardImg} />
                 </div>
                 <div className={styles.cardContent}>
                     <h2>Apartment Type: {element.appartmentTypeId}</h2>

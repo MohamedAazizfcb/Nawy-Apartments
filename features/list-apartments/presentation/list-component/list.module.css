@@ -2,26 +2,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
     width: 100%;
     padding: 20px;
+    margin: auto;
+    text-align: center;
 }
 
 .cardWrapper {
-    width: 80%;
+    width: 70%;
     opacity: 0;
     animation: enter 1s forwards;
-    display: flex;
-    justify-content: flex-start;
+    display: block;
 }
 
 .fromLeft {
     animation-name: enterFromLeft;
+    direction: ltr;
 }
 
 .fromRight {
     animation-name: enterFromRight;
-    justify-content: flex-end;
+    direction: rtl;
+
 }
 
 @keyframes enterFromLeft {
@@ -48,21 +50,36 @@
 
 .paginationControls {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 20px;
 }
 
-.paginationControls button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #0070f3;
-    color: white;
+.pageNumbers {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pageNumbers button {
+    padding: 0.5rem 1rem;
+    background-color: #f8f8f8;
+    color: #141414;
     cursor: pointer;
+    border-radius: 50%;
 }
 
-.paginationControls button:disabled {
-    background-color: #e0e0e0;
-    color: black;
+.pageNumbers button.activePage {
+    background-color: #535353;
+    color: white;
+}
+
+.pageNumbers button:disabled {
     cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pageButtons{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+    cursor: pointer;
 }

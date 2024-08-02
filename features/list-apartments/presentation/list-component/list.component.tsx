@@ -18,7 +18,8 @@ const ListComponent = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res: APIResponse<AppartmentsListElement[]> = await listApartmentsService.getApartmentsByPage(page, pageSize);
+                const prom: any = (await listApartmentsService.getApartmentsByPage(page, pageSize)).data;
+                let res: APIResponse<AppartmentsListElement[]> = prom;
                 setApartments(res.data);
                 setPage(res.pageNumber);
                 setCount(res.numberOfPages);
@@ -42,6 +43,14 @@ const ListComponent = () => {
         }
     };
 
+    const handlePageClick = (pageNumber: number) => {
+        if (pageNumber !== page) {
+            setPage(pageNumber);
+        }
+    };
+
+    const pageNumbers = Array.from({ length: count }, (_, i) => i + 1);
+
     return (
         <main>
             <div className={styles.cardList}>
@@ -55,9 +64,19 @@ const ListComponent = () => {
                 ))}
             </div>
             <div className={styles.paginationControls}>
-                <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
-                <span>Page {page}</span>
-                <button onClick={handleNextPage} disabled={page >= count}>Next</button>
+                <button className={styles.pageButtons} onClick={handlePrevPage} disabled={page === 1}>Previous</button>
+                <div className={styles.pageNumbers}>
+                    {pageNumbers.map(number => (
+                        <button
+                            key={number}
+                            onClick={() => handlePageClick(number)}
+                            className={number === page ? styles.activePage : ''}
+                        >
+                            {number}
+                        </button>
+                    ))}
+                </div>
+                <button className={styles.pageButtons} onClick={handleNextPage} disabled={page >= count}>Next</button>
             </div>
         </main>
     );

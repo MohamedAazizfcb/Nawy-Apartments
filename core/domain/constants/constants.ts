@@ -1,3 +1,4 @@
+const baseUrl = "http://localhost:3000";
 const PageSize = 5;
 
-export { PageSize }
+export { baseUrl, PageSize }

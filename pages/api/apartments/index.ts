@@ -10,6 +10,7 @@ import { ApartmentAddRequest } from '@/src/domain/dtos/apartment/apartment-add-r
 import { ApartmentListingResponse } from '@/src/domain/dtos/apartment/apartment-listing-response.dto';
 import { AprtmentToApartmentListRes } from '@/src/application/mappers/apartment.mapper';
 import { addApartment, getPaged } from '@/src/presentation/controllers/apartment.controller';
+import cors, { runCorsMiddleware } from '@/src/middleware/cors.middleware';
 
 // Configure multer for file uploads
 const upload = multer({
@@ -28,10 +29,8 @@ export const config = {
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  await connectDB(); // Ensure database is connected
+  await runCorsMiddleware(req, res, cors);
 
-  const apartmentRepo = new ApartmentRepository();
-  const apartmentUseCases = new ApartmentUseCases(apartmentRepo);
 
   if (req.method === 'POST') {
     await addApartment(req, res);

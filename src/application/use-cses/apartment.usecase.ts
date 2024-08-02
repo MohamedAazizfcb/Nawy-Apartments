@@ -16,7 +16,7 @@ export class ApartmentUseCases {
       apartmentData.price,
       apartmentData.address,
       apartmentData.floor,
-      apartmentData.availability,
+      true,
       apartmentData.description,
       new Date(),
       new Date()

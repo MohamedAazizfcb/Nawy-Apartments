@@ -6,6 +6,8 @@ import { IGetApartmentService } from "../../application/contracts/get-appartment
 import { GetApartmentService } from "../../application/implementations/get-appartment..service";
 import { APIResponse } from "@/core/domain/dtos/api-response.dto";
 import { baseUrl } from "@/core/domain/constants/constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAreaChart, faBed, faFileText, faGopuram, faHouse, faMoneyBill, faShower } from "@fortawesome/free-solid-svg-icons";
 
 const ViewComponent = () => {
     const [apartment, setApartment] = useState<ApartmentView | null>(null);
@@ -48,14 +50,14 @@ const ViewComponent = () => {
                 <img src={baseUrl + apartment.imgUrl} alt={`Apartment at ${apartment.address}`} className={styles.image} />
             </div>
             <div className={styles.details}>
-                <h1 className={styles.title}>{`Apartment ${apartment.address}`}</h1>
-                <p className={styles.description}>{apartment.description}</p>
+                <h1 className={styles.title}><FontAwesomeIcon icon={faHouse}/> &nbsp;{`Apartment ${apartment.address}`}</h1>
+                <p className={styles.description}><FontAwesomeIcon icon={faFileText}/> &nbsp;{apartment.description}</p>
                 <ul className={styles.infoList}>
-                    <li>{`Beds: ${apartment.numberOfBeds}`}</li>
-                    <li>{`Baths: ${apartment.numberOfBaths}`}</li>
-                    <li>{`Area: ${apartment.areaInM2} m²`}</li>
-                    <li>{`Price: $${apartment.price}`}</li>
-                    <li>{`Floor: ${apartment.floor}`}</li>
+                    <li><FontAwesomeIcon icon={faBed}/> &nbsp;{`Beds: ${apartment.numberOfBeds}`}</li>
+                    <li><FontAwesomeIcon icon={faShower}/> &nbsp;{`Baths: ${apartment.numberOfBaths}`}</li>
+                    <li><FontAwesomeIcon icon={faAreaChart}/> &nbsp;{`Area: ${apartment.areaInM2} m²`}</li>
+                    <li><FontAwesomeIcon icon={faMoneyBill}/> &nbsp;{`Price: $${apartment.price}`}</li>
+                    <li><FontAwesomeIcon icon={faGopuram}/> &nbsp;{`Floor: ${apartment.floor}`}</li>
                 </ul>
                 <button className={styles.returnButton} onClick={handleGoBack}>Return</button>
             </div>

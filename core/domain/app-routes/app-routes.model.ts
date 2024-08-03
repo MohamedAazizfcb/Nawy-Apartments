@@ -15,26 +15,26 @@ export class RoutesModel // Singleton
 
     private apartments: IRouteModel = {
         route: 'apartments',
-        label_en: 'apartments', 
+        label_en: 'Apartments', 
         label_ar: 'الشقق'
     };
 
     addApartment: IRouteModel = {
         route: this.apartments.route + '/add',
-        label_en: 'add', 
+        label_en: 'Add', 
         label_ar: 'اضافة'
     };
 
     listAllAppartments: IRouteModel = {
         route: this.apartments.route + '/list',
-        label_en: 'list', 
+        label_en: 'List', 
         label_ar: 'الكل'
     };
 
     ViewApartment = (id?: number): IRouteModel => {
       return {
         route: id? this.apartments.route + '/' + id : this.apartments.route + '/:id',
-        label_en: 'apartment details', 
+        label_en: 'Apartment details', 
         label_ar: 'بيانات شقة'
       }
   };

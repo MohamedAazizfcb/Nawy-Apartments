@@ -7,6 +7,8 @@ import { apartmentsTypes } from '@/core/domain/lookups/aprtment-types.lookup';
 import { compounds } from '@/core/domain/lookups/compounds.lookup';
 import { useRouter } from 'next/router';
 import { appRoutes } from '@/core/domain/domain.module';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAreaChart, faBed, faCity, faFileText, faGopuram, faHouse, faImage, faLocation, faMoneyBill, faPlus, faShower } from '@fortawesome/free-solid-svg-icons';
 
 const AddApartmentComponent = () => {
   const {
@@ -69,10 +71,16 @@ const AddApartmentComponent = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h1>Add Apartment</h1>
+      <h1>
+        <FontAwesomeIcon icon={faPlus}/> &nbsp;
+        Add Apartment
+      </h1>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Image:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faImage}/> &nbsp;
+            Image
+          </label>
           <input
             type="file"
             accept="image/*"
@@ -84,7 +92,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Apartment Type:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faHouse}/> &nbsp;
+            Apartment Type
+          </label>
           <Controller
             control={control}
             name="appartmentTypeId"
@@ -107,7 +118,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Compound ID:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faCity}/> &nbsp;
+            Compound
+          </label>
           <Controller
             control={control}
             name="compoundId"
@@ -130,7 +144,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Number of Beds:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faBed}/> &nbsp;
+            Number of Beds
+          </label>
           <input
             type="number"
             placeholder="Enter number of beds"
@@ -146,7 +163,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Number of Baths:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faShower}/> &nbsp;
+            Number of Baths
+          </label>
           <input
             type="number"
             placeholder="Enter number of baths"
@@ -162,7 +182,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Area (m²):</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faAreaChart}/> &nbsp;
+            Area (m²):
+          </label>
           <input
             type="number"
             placeholder="Enter area in m²"
@@ -178,7 +201,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Price:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faMoneyBill}/> &nbsp;
+            Price
+          </label>
           <input
             type="number"
             placeholder="Enter price"
@@ -194,7 +220,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Address:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faLocation}/> &nbsp;
+            Address
+          </label>
           <input
             placeholder="Enter address"
             {...register('address', { required: 'Address is required.' })}
@@ -205,7 +234,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Floor:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faGopuram}/> &nbsp;
+            Floor
+          </label>
           <input
             type="number"
             placeholder="Enter floor number"
@@ -221,7 +253,10 @@ const AddApartmentComponent = () => {
         </div>
 
         <div className={styles.formControl}>
-          <label className={styles.formLabel}>Description:</label>
+          <label className={styles.formLabel}>
+            <FontAwesomeIcon icon={faFileText}/> &nbsp;
+            Description
+          </label>
           <textarea
             placeholder="Enter apartment description"
             {...register('description', { required: 'Description is required.' })}

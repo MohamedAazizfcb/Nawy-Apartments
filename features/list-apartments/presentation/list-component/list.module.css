@@ -80,7 +80,8 @@
 }
 
 .pageNumbers button.activePage {
-    background-color: var(--border-color);
+    background-color: var(--secondary-color);
+    opacity: .9;
     color: var(--text-color);
 }
 

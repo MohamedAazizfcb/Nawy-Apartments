@@ -29,10 +29,12 @@
   font-size: 1.7rem;
   font-weight: bolder;
   transition: color 0.3s ease, transform 0.3s ease;
+  opacity: .85;
 }
 
 .link:hover {
-  color: var(--secondary-color);
+  color: var(--text-color);
+  opacity: 1;
   transform: scale(1.05); 
 }
 

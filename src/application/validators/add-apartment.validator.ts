@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 export const addApartmentSchema = Joi.object({
   imgUrl: Joi.string().uri().required(),
-  appartmentTypeId: Joi.number().integer().min(1).max(2).required(),
+  appartmentTypeId: Joi.number().integer().min(1).max(3).required(),
   compoundId: Joi.number().integer().min(1).max(3).required(),
   numberOfBeds: Joi.number().integer().min(1).max(5).required(),
   numberOfBaths: Joi.number().integer().min(1).max(5).required(),

@@ -31,6 +31,9 @@ const AddApartmentComponent = () => {
     setValue('appartmentTypeId', apartmentsTypes[0]?.id);
   }, [apartmentsTypes, setValue]);
 
+  useEffect(() => {
+    setValue('compoundId', compounds[0]?.id);
+  }, [compounds, setValue]);
   const onSubmit: SubmitHandler<AddApartmentDTO> = async (data) => {
     setLoading(true); 
     const formData = new FormData();

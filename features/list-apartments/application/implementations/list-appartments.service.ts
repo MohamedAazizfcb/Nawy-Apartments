@@ -1,4 +1,3 @@
-// import { addDIService } from "@/core/application/context/service.provider";
 import { APIResponse } from "@/core/domain/dtos/api-response.dto";
 import { AppartmentsListElement } from "../../domain/dtos/appartments-list-element.dto";
 import { IListApartmentsService } from "../contracts/list-appartments.interface";

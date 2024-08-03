@@ -1,41 +1,48 @@
-/* components/Header.module.css */
 .header {
-    padding: 1rem;
-    position: relative;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 1s ease-in-out;
-    background-color: rgb(92, 92, 92);
+  padding: 1rem;
+  position: relative;
+  margin: 0;
+  width: 102vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+  background-color: var(--primary-color);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.logo {
+  max-height: 50px; 
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  margin-inline: 5vw;
+}
+
+.link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: 'Arial', sans-serif; 
+  font-size: 1.7rem;
+  font-weight: bolder;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link:hover {
+  color: var(--secondary-color);
+  transform: scale(1.05); 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); 
   }
-  
-  .nav {
-    display: flex;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .link {
-    margin-right: 1rem;
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .link:hover {
-    color: #ff4081;
-  }
-  
-  .log {
-    color: white;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
+}

@@ -1,12 +1,24 @@
-/* components/Footer.module.css */
 .footer {
-    background-color: #1c1c1c;
-    color: white;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    margin: 0;
-    height: fit-content;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+  padding: 2px 0; 
+  font-weight: bolder;
+  font-size: 0.9rem; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+  height: fit-content;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
+  to {
+    opacity: 1;
+  }
+}

@@ -5,7 +5,7 @@ import { IAddApartmentService } from "../contracts/add-appartments.interface";
 import { AddApartmentDTO } from "../../domain/dtos/apartment-add.dto";
 
 export class AddApartmentsService implements IAddApartmentService{
-    addApartment(apartment: AddApartmentDTO): Promise<APIResponse<string[]>>  {
+    addApartment(apartment: FormData): Promise<APIResponse<string[]>>  {
         try 
         {
             return axiosInstance.post('/api/apartments', apartment, {

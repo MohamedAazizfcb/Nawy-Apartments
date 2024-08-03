@@ -1,0 +1,17 @@
+:root{
+    --background-color:  #e7e7e7;
+    --primary-color:  #dbdbdbbb;
+    --secondary-color:  #e9e9e9de;
+    --text-color:  #242423;
+    --button-color:  #fafafa ;
+    --border-color:  #ffffff;
+}
+
+body{
+    background: url('/background.jpg');
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+}

@@ -1,64 +1,162 @@
-/* components/ApartmentForm.module.css */
+/* Base styles */
 .formContainer {
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ebebeb;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+  margin: 25px auto;
+  padding: 15px; 
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  width: 90%;
+  max-width: 800px;
+}
+
+.formContainer.show {
+  opacity: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; 
+}
+
+.formLabel {
+  margin-bottom: 3px; 
+  font-weight: bold;
+  text-align: left; 
+  font-size: 0.9em;
+}
+
+.formInput, .formTextarea {
+  padding: 8px; 
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  font-size: 0.9em;
+}
+
+.formInput:focus, .formTextarea:focus {
+  border-color: var(--secondary-color);
+}
+
+.formInput {
+  -moz-appearance: textfield; /* Firefox */
+  -webkit-appearance: none;   /* Safari and Chrome */
+  appearance: none;           /* Other browsers */
+}
+
+.formInput::-webkit-inner-spin-button,
+.formInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.formTextarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.submitButton {
+  padding: 8px 16px; 
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+  opacity: 0.9;
+  font-size: 0.9em; 
+}
+
+.submitButton:hover {
+  opacity: 1;
+}
+
+.submitButton:disabled {
+  background-color: var(--border-color);
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  font-size: 1em; 
+  margin-top: 2px; 
+  margin-bottom: 0; 
+  font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .formContainer {
+    width: 95%;
   }
-  
-  .formContainer.show {
-    opacity: 1;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-  }
-  
+}
+
+@media (max-width: 992px) {
   .formLabel {
-    margin-bottom: 15px;
-    position: relative;
+    font-size: 0.85em;
   }
-  
+
   .formInput, .formTextarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
+    font-size: 0.85em;
   }
-  
-  .formInput:focus, .formTextarea:focus {
-    border-color: #0070f3;
-  }
-  
-  .formTextarea {
-    height: 100px;
-  }
-  
+
   .submitButton {
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 0.85em;
   }
-  
-  .submitButton:hover {
-    background-color: #005bb5;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    width: 95%;
+    padding: 10px;
   }
-  
-  .error {
-    color: red;
-    font-size: 0.9em;
-    position: absolute;
-    top: 100%;
-    left: 0;
+
+  .formControl {
+    margin-bottom: 15px; 
   }
-  
+
+  .formLabel {
+    font-size: 0.8em;
+  }
+
+  .formInput, .formTextarea {
+    font-size: 0.8em;
+  }
+
+  .submitButton {
+    font-size: 0.8em;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .formContainer {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .formControl {
+    margin-bottom: 20px; 
+  }
+
+  .formLabel {
+    font-size: 0.75em;
+  }
+
+  .formInput, .formTextarea {
+    font-size: 0.75em;
+  }
+
+  .submitButton {
+    font-size: 0.75em;
+    padding: 8px;
+  }
+}

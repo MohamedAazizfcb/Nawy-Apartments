@@ -1,10 +1,12 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import styles from './globals.module.css'
 
 const Document = () => {
   return (
     <Html lang="en">
-      <Head />
-      <body style={{backgroundColor: "aliceblue", padding: 0, margin: 0, overflowX: "hidden"}}>
+      <Head>
+      </Head>
+      <body>
         <Main />
         <NextScript />
       </body>

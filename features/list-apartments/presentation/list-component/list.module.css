@@ -13,6 +13,7 @@
     opacity: 0;
     animation: enter 1s forwards;
     display: block;
+    position: relative; 
 }
 
 .fromLeft {
@@ -23,7 +24,14 @@
 .fromRight {
     animation-name: enterFromRight;
     direction: rtl;
+}
 
+.cardWrapper:nth-child(odd) {
+    transform: translateX(-10px); 
+}
+
+.cardWrapper:nth-child(even) {
+    transform: translateX(10px); 
 }
 
 @keyframes enterFromLeft {
@@ -52,6 +60,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap; 
+    gap: 1rem; 
+    margin: 10px 0;
 }
 
 .pageNumbers {
@@ -61,15 +72,16 @@
 
 .pageNumbers button {
     padding: 0.5rem 1rem;
-    background-color: #f8f8f8;
-    color: #141414;
+    background-color: var(--button-color);
+    color: var(--text-color);
     cursor: pointer;
     border-radius: 50%;
+    font-size: 1rem; 
 }
 
 .pageNumbers button.activePage {
-    background-color: #535353;
-    color: white;
+    background-color: var(--border-color);
+    color: var(--text-color);
 }
 
 .pageNumbers button:disabled {
@@ -77,9 +89,27 @@
     opacity: 0.5;
 }
 
-.pageButtons{
+.pageButtons {
     padding: 10px;
     border-radius: 5px;
     margin: 20px;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .cardWrapper {
+        width: 90%; 
+    }
+    .cardWrapper:nth-child(odd) {
+        transform: translateX(0);
+    }
+    .cardWrapper:nth-child(even) {
+        transform: translateX(0); 
+    }
+    .paginationControls {
+        flex-direction: column; 
+    }
+    .pageNumbers {
+        flex-wrap: wrap; 
+    }
 }

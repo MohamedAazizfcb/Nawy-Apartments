@@ -3,6 +3,8 @@ import { AppartmentsListElement } from '../../domain/dtos/appartments-list-eleme
 import styles from './list-card.module.css'
 import { useRouter } from 'next/router';
 import { appRoutes } from '@/core/domain/domain.module';
+import { apartmentsTypes } from '@/core/domain/lookups/aprtment-types.lookup';
+import { compounds } from '@/core/domain/lookups/compounds.lookup';
 
 const ListCardComponent = (element: AppartmentsListElement) => {
     const router = useRouter();
@@ -18,8 +20,8 @@ const ListCardComponent = (element: AppartmentsListElement) => {
                     <img src={baseUrl + element.imgUrl} alt="Apartment Image" className={styles.cardImg} />
                 </div>
                 <div className={styles.cardContent}>
-                    <h2>Apartment Type: {element.appartmentTypeId}</h2>
-                    <p>Compound: {element.compoundId}</p>
+                    <h2>Apartment Type: {apartmentsTypes.find(ele => ele.id = element.appartmentTypeId)?.val }</h2>
+                    <p>Compound: { compounds.find(ele => ele.id = element.compoundId)?.val}</p>
                     <div className={styles.details}>
                         <div>
                             <p>Beds</p>
